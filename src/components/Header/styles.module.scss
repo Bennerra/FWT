@@ -1,0 +1,25 @@
+@import "../../_variables";
+
+.header {
+  padding: 35px 0;
+  background-color: $color-white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  &__logo {
+    cursor: pointer;
+    & > * {
+      width: 64px;
+      height: 64px;
+      object-fit: cover;
+    }
+  }
+  &__theme {
+    cursor: pointer;
+    & > * {
+      width: 20px;
+      height: 20px;
+      object-fit: cover;
+    }
+  }
+}

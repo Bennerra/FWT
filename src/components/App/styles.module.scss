@@ -1,0 +1,16 @@
+@import "../../_variables";
+
+.container {
+  max-width: 1366px;
+  padding: 0 20px;
+  margin: 0 auto;
+  @media(min-width: $mw2) {
+    padding: 0 34px;
+  }
+  @media(min-width: $mw3) {
+    padding: 0 42px;
+  }
+  @media(min-width: $mw4) {
+    padding: 0 123px;
+  }
+}

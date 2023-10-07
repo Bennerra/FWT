@@ -1,0 +1,14 @@
+@import "../../_variables";
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 21px;
+  @media(min-width: $mw2) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+  }
+  @media(min-width: $mw3) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

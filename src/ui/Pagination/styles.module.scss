@@ -1,0 +1,51 @@
+@import "../../_variables";
+
+.pagination {
+  display: flex;
+  & div {
+    background-color: $color-white;
+    padding: 10px 15px;
+    border: 1px solid $color-black;
+    color: $color-black;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+    &:first-child {
+      border-radius: 10px 0 0 10px;
+    }
+    &:last-child {
+      border-radius: 0 10px 10px 0;
+    }
+    &:not(:last-child) {
+      border-right: 0;
+    }
+    &:hover {
+      background-color: $color-hover-gray;
+    }
+  }
+  &__arrow {
+    & > * {
+      width: 8px;
+      height: 13px;
+      object-fit: cover;
+    }
+  }
+  &__arrow-double {
+    & > * {
+      width: 13px;
+      height: 13px;
+      object-fit: cover;
+    }
+  }
+  &__page {
+    &._current {
+      color: $color-white;
+      background-color: $color-black;
+      &:hover {
+        background-color: $color-black;
+      }
+    }
+  }
+}

@@ -40,11 +40,17 @@
     font-size: 13px;
     font-weight: 300;
     line-height: 20px;
+    opacity: 0;
+    visibility: hidden;
   }
   &:hover .card {
     &__bottom {
       height: 50%;
       transition: all 0.3s ease-in-out;
+    }
+    &__info {
+      opacity: 1;
+      visibility: visible;
     }
   }
 }

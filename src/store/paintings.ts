@@ -12,7 +12,7 @@ export const paintingsApi = createApi({
       { _limit: number; _page: number }
     >({
       query: ({ _limit, _page }) => ({
-        url: `/paintings?${_limit}&_page=${_page}`,
+        url: `/paintings?`,
         params: {
           _limit,
           _page,

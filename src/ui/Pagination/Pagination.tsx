@@ -11,50 +11,73 @@ import { usePagination } from "../../hooks/usePagination";
 import { useAppDispatch } from "../../hooks/redux";
 import {
   changeCurrentPage,
+  changeNextDoublePage,
   changeNextPage,
+  changePrevDoublePage,
   changePrevPage,
 } from "../../store/paginationSlice";
 
 interface PaginationProps {
   totalPages: number;
   currentPage: number;
-  totalCount: number;
 }
 
 const cx = classNames.bind(styles);
 
-const PAGE_DOUBLE = 2;
-const PAGE = 1;
-
-const Pagination: FC<PaginationProps> = ({ totalPages, currentPage, totalCount }) => {
-  const pages = usePagination(totalPages);
+const Pagination: FC<PaginationProps> = ({ totalPages, currentPage }) => {
+  const pages = usePagination(totalPages, currentPage);
   const dispatch = useAppDispatch();
 
   return (
     <div className={cx("pagination")}>
-      <div className={cx("pagination__arrow-double")} onClick={() => dispatch(changePrevPage(2))}>
+      <button
+        type="button"
+        className={cx("pagination__arrow-double", {
+          _disabled: currentPage === 1,
+        })}
+        onClick={() => dispatch(changePrevDoublePage())}
+      >
         <ArrowPrevDouble />
-      </div>
-      <div className={cx("pagination__arrow")} onClick={() => dispatch(changePrevPage(1))}>
+      </button>
+      <button
+        type="button"
+        className={cx("pagination__arrow", {
+          _disabled: currentPage === 1,
+        })}
+        onClick={() => dispatch(changePrevPage())}
+      >
         <ArrowPrev />
-      </div>
-      {pages.map((page, index) => (
-        <div
-          key={index}
+      </button>
+      {pages.map((page) => (
+        <button
+          type="button"
+          key={page}
           className={cx("pagination__page", {
             _current: currentPage === page,
           })}
           onClick={() => dispatch(changeCurrentPage(page))}
         >
           {page}
-        </div>
+        </button>
       ))}
-      <div className={cx("pagination__arrow")}  onClick={() => dispatch(changeNextPage({totalPages, nextCount: PAGE}))} >
+      <button
+        type="button"
+        className={cx("pagination__arrow", {
+          _disabled: currentPage === totalPages,
+        })}
+        onClick={() => dispatch(changeNextPage(totalPages))}
+      >
         <ArrowNext />
-      </div>
-      <div className={cx("pagination__arrow-double")} onClick={() => dispatch(changeNextPage({totalPages, nextCount: PAGE_DOUBLE}))}>
+      </button>
+      <button
+        type="button"
+        className={cx("pagination__arrow-double", {
+          _disabled: currentPage === totalPages,
+        })}
+        onClick={() => dispatch(changeNextDoublePage(totalPages))}
+      >
         <ArrowNextDouble />
-      </div>
+      </button>
     </div>
   );
 };

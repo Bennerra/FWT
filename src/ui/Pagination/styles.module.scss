@@ -2,7 +2,7 @@
 
 .pagination {
   display: flex;
-  & div {
+  & > * {
     background-color: $color-white;
     padding: 10px 15px;
     border: 1px solid $color-black;
@@ -31,12 +31,32 @@
       height: 13px;
       object-fit: cover;
     }
+    &._disabled {
+      border: 1px solid $color-gray;
+      cursor: auto;
+      &:hover {
+        background-color: $color-white;
+      }
+      & > * {
+        color: $color-gray;
+      }
+    }
   }
   &__arrow-double {
     & > * {
       width: 13px;
       height: 13px;
       object-fit: cover;
+    }
+    &._disabled {
+      border: 1px solid $color-gray;
+      cursor: auto;
+      &:hover {
+        background-color: $color-white;
+      }
+      & > * {
+        color: $color-gray;
+      }
     }
   }
   &__page {

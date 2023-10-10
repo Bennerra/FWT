@@ -22,17 +22,19 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    height: 30px;
-    transition: all 0.3s ease-in-out;
+    min-height: 30px;
+    transition: min-height 0.3s ease-in-out;
+    overflow: hidden;
   }
   &__title {
     font-size: 18px;
     font-weight: 700;
     line-height: 20px;
     text-transform: capitalize;
-    margin-bottom: 6px;
   }
   &__info {
+    position: absolute;
+    visibility: hidden;
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -40,17 +42,17 @@
     font-size: 13px;
     font-weight: 300;
     line-height: 20px;
-    opacity: 0;
-    visibility: hidden;
   }
   &:hover .card {
     &__bottom {
-      height: 50%;
-      transition: all 0.3s ease-in-out;
+      min-height: 50%;
+      transition: min-height 0.3s ease-in-out;
     }
     &__info {
-      opacity: 1;
       visibility: visible;
+    }
+    &__title {
+      margin-bottom: 6px;
     }
   }
 }

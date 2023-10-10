@@ -14,7 +14,7 @@ import styles from "./styles.module.scss";
 
 const cx = classNames.bind(styles);
 
-const LIMIT = 8;
+const LIMIT = 9;
 
 interface HomeProps {
   currentPage: number;

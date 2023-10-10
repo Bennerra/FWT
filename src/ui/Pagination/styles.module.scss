@@ -3,8 +3,8 @@
 .pagination {
   display: flex;
   & > * {
-    background-color: $color-white;
-    padding: 10px 15px;
+    background-color: inherit;
+    padding: 10px 14px;
     border: 1px solid $color-black;
     color: $color-black;
     font-size: 18px;
@@ -24,6 +24,14 @@
     &:hover {
       background-color: $color-hover-gray;
     }
+    &._dark {
+      border-color: $color-white;
+      color: $color-white;
+      &:hover {
+        background-color: $color-hover-dark-gray;
+        color: $color-white;
+      }
+    }
   }
   &__arrow {
     & > * {
@@ -32,13 +40,20 @@
       object-fit: cover;
     }
     &._disabled {
-      border: 1px solid $color-gray;
+      border-color: $color-gray;
       cursor: auto;
       &:hover {
         background-color: $color-white;
       }
       & > * {
         color: $color-gray;
+      }
+      &._dark {
+        background-color: $color-black;
+        border-color: $color-light-gray;
+        & > * {
+          color: $color-light-gray;
+        }
       }
     }
   }
@@ -49,7 +64,7 @@
       object-fit: cover;
     }
     &._disabled {
-      border: 1px solid $color-gray;
+      border-color: $color-gray;
       cursor: auto;
       &:hover {
         background-color: $color-white;
@@ -57,14 +72,23 @@
       & > * {
         color: $color-gray;
       }
+      &._dark {
+        background-color: $color-black;
+        border-color: $color-light-gray;
+        & > * {
+          color: $color-light-gray;
+        }
+      }
     }
   }
   &__page {
     &._current {
+      cursor: auto;
       color: $color-white;
       background-color: $color-black;
-      &:hover {
-        background-color: $color-black;
+      &._dark {
+        color: $color-black;
+        background-color: $color-white;
       }
     }
   }

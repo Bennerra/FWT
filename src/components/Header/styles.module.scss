@@ -2,7 +2,7 @@
 
 .header {
   padding: 35px 0;
-  background-color: $color-white;
+  background-color: inherit;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -16,10 +16,14 @@
   }
   &__theme {
     cursor: pointer;
+    background-color: inherit;
     & > * {
       width: 20px;
       height: 20px;
       object-fit: cover;
+    }
+    &._dark {
+      color: $color-white;
     }
   }
 }

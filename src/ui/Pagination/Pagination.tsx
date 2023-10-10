@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useContext } from "react";
 
 import classNames from "classnames/bind";
 import { ReactComponent as ArrowPrevDouble } from "../../assets/ArrowPrevDouble.svg";
@@ -16,6 +16,7 @@ import {
   changePrevDoublePage,
   changePrevPage,
 } from "../../store/paginationSlice";
+import { ThemeContext } from "../../context/ThemeContext";
 
 interface PaginationProps {
   totalPages: number;
@@ -27,6 +28,7 @@ const cx = classNames.bind(styles);
 const Pagination: FC<PaginationProps> = ({ totalPages, currentPage }) => {
   const pages = usePagination(totalPages, currentPage);
   const dispatch = useAppDispatch();
+  const { theme } = useContext(ThemeContext);
 
   return (
     <div className={cx("pagination")}>
@@ -34,6 +36,7 @@ const Pagination: FC<PaginationProps> = ({ totalPages, currentPage }) => {
         type="button"
         className={cx("pagination__arrow-double", {
           _disabled: currentPage === 1,
+          _dark: theme === "dark",
         })}
         onClick={() => dispatch(changePrevDoublePage())}
       >
@@ -43,6 +46,7 @@ const Pagination: FC<PaginationProps> = ({ totalPages, currentPage }) => {
         type="button"
         className={cx("pagination__arrow", {
           _disabled: currentPage === 1,
+          _dark: theme === "dark",
         })}
         onClick={() => dispatch(changePrevPage())}
       >
@@ -54,6 +58,7 @@ const Pagination: FC<PaginationProps> = ({ totalPages, currentPage }) => {
           key={page}
           className={cx("pagination__page", {
             _current: currentPage === page,
+            _dark: theme === "dark",
           })}
           onClick={() => dispatch(changeCurrentPage(page))}
         >
@@ -64,6 +69,7 @@ const Pagination: FC<PaginationProps> = ({ totalPages, currentPage }) => {
         type="button"
         className={cx("pagination__arrow", {
           _disabled: currentPage === totalPages,
+          _dark: theme === "dark",
         })}
         onClick={() => dispatch(changeNextPage(totalPages))}
       >
@@ -73,6 +79,7 @@ const Pagination: FC<PaginationProps> = ({ totalPages, currentPage }) => {
         type="button"
         className={cx("pagination__arrow-double", {
           _disabled: currentPage === totalPages,
+          _dark: theme === "dark",
         })}
         onClick={() => dispatch(changeNextDoublePage(totalPages))}
       >

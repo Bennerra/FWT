@@ -1,4 +1,4 @@
-import { FC, useMemo } from "react";
+import { FC, useMemo, useState } from "react";
 
 import classNames from "classnames/bind";
 import {
@@ -8,9 +8,12 @@ import {
 } from "../../store";
 import { CardsList } from "../../components/CardsList";
 import { Pagination } from "../../ui/Pagination";
+import { DropDown } from "../../ui/DropDown";
 import { getCountPages } from "../../utils/getCountPages";
 
 import styles from "./styles.module.scss";
+import { Input } from "../../ui/Input";
+import { useAppSelector } from "../../hooks/redux";
 
 const cx = classNames.bind(styles);
 
@@ -21,9 +24,14 @@ interface HomeProps {
 }
 
 const Home: FC<HomeProps> = ({ currentPage }) => {
+  const [filterValue, setFilterValue] = useState("");
+  const sortingId = useAppSelector((state) => state.addSorting.id);
+  // const sorting = useAppSelector((state) => state.addSorting.sorting);
   const { data: paintingsData, isLoading } = useGetPaintingsQuery({
     _limit: LIMIT,
     _page: currentPage,
+    q: filterValue,
+    authorId: sortingId > 0 ? sortingId : undefined,
   });
   const { data: authorsData = [] } = useGetAuthorsQuery();
   const { data: locationsData = [] } = useGetLocationsQuery();
@@ -32,22 +40,38 @@ const Home: FC<HomeProps> = ({ currentPage }) => {
 
   const pages = useMemo(() => getCountPages(totalCount, LIMIT), [totalCount]);
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
   return (
     <div className={cx("home")}>
-      <div className={cx("home__cards")}>
-        <CardsList
-          authorsData={authorsData}
-          locationsData={locationsData}
-          paintingsData={paintingsData?.data || []}
-        />
-      </div>
-      <div className={cx("home__pagination")}>
-        <Pagination totalPages={pages} currentPage={currentPage} />
-      </div>
+      {isLoading ? (
+        <div className={cx("loading")}>Loading...</div>
+      ) : (
+        <>
+          <section className={cx("home__filters")}>
+            <Input
+              placeholder="Name"
+              value={filterValue}
+              onChange={(e) => setFilterValue(e.target.value)}
+            />
+            <DropDown title="Author" listArr={authorsData} />
+            <Input placeholder="Name" />
+            <Input placeholder="Name" />
+          </section>
+          <section className={cx("home__cards")}>
+            <CardsList
+              authorsData={authorsData}
+              locationsData={locationsData}
+              paintingsData={paintingsData?.data || []}
+            />
+          </section>
+          {paintingsData && paintingsData?.data.length > 0 ? (
+            <section className={cx("home__pagination")}>
+              <Pagination totalPages={pages} currentPage={currentPage} />
+            </section>
+          ) : (
+            <div className={cx("not-found")}>Картины не найдены!</div>
+          )}
+        </>
+      )}
     </div>
   );
 };

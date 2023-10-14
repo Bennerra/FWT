@@ -1,0 +1,122 @@
+@import "../../_variables";
+
+.dropdown {
+  position: relative;
+  width: 100%;
+  background: $color-white;
+  color: $color-black;
+  font-size: 13px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background 0.4s ease-in-out;
+  &-dark {
+    background: $color-black;
+    color: $color-white;
+  }
+  &__filter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 8px;
+    border: 1px solid $color-black;
+    padding: 15px;
+    &._isOpen {
+      border-bottom: 1px solid $color-gray;
+      border-radius: 8px 8px 0 0;
+    }
+    &-dark {
+      border-color: $color-white;
+      &._isOpen {
+        border-bottom-color: $color-light-gray;
+      }
+    }
+  }
+  &__direction {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  &__delete {
+    background: $color-white;
+    transition: background 0.4s ease-in-out;
+    &-dark {
+      color: $color-light-gray;
+      background: $color-black;
+    }
+  }
+  &__arrow {
+    background-color: $color-white;
+    transition: background 0.4s ease-in-out;
+    &-dark {
+      color: $color-light-gray;
+      background-color: $color-black;
+    }
+  }
+  &__body {
+    width: 100%;
+    position: absolute;
+    background-color: $color-white;
+    top: 45px;
+    left: 0;
+    height: 305px;
+    border: 1px solid $color-black;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    z-index: 5;
+    padding: 10px 0;
+    padding-right: 8px;
+    transition: background-color 0.4s ease-in-out;
+    &-dark {
+      background-color: $color-black;
+      border-color: $color-white;
+    }
+  }
+
+  &__list {
+    overflow: auto;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    color: $color-black;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    &-dark {
+      color: $color-white;
+    }
+
+    &::-webkit-scrollbar {
+      height: 100%;
+      width: 9px;
+    }
+
+    &::-webkit-scrollbar-track {
+      height: 131px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 131px;
+      width: 9px;
+      background-color: $color-gray-scroll;
+      border-radius: 10px;
+    }
+  }
+}
+.dropdown-list {
+  &__item {
+    padding: 10px 30px;
+    &:hover {
+      background-color: $color-black;
+      color: $color-white;
+    }
+    &-dark {
+      &:hover {
+        background-color: $color-white;
+        color: $color-black;
+      }
+    }
+  }
+}

@@ -1,5 +1,13 @@
 @import "../../_variables";
 
+.app {
+  background-color: $color-white;
+  transition: background-color 0.4s ease-in-out;
+  &-dark {
+    color: $color-white;
+    background-color: $color-black;
+  }
+}
 .container {
   max-width: 1366px;
   padding: 0 20px;

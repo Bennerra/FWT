@@ -5,6 +5,8 @@ import { locationsApi } from "./locations";
 import currentPageReducer from "./paginationSlice";
 import nextPageReducer from "./paginationSlice";
 import prevPageReducer from "./paginationSlice";
+import addSorting from "./sortingSlice";
+import deleteSorting from "./sortingSlice";
 
 export const store = configureStore({
   reducer: {
@@ -14,6 +16,8 @@ export const store = configureStore({
     currentPage: currentPageReducer,
     nextPage: nextPageReducer,
     prevPage: prevPageReducer,
+    addSorting,
+    deleteSorting,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(

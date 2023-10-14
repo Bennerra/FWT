@@ -9,13 +9,20 @@ export const paintingsApi = createApi({
   endpoints: (build) => ({
     getPaintings: build.query<
       { data: IPainting[]; totalCount: number },
-      { _limit: number; _page: number }
+      {
+        _limit: number;
+        _page: number;
+        q: string;
+        authorId?: number | undefined;
+      }
     >({
-      query: ({ _limit, _page }) => ({
+      query: ({ _limit, _page, q, authorId }) => ({
         url: `/paintings?`,
         params: {
           _limit,
           _page,
+          q,
+          authorId,
         },
       }),
       transformResponse: (

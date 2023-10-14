@@ -1,0 +1,19 @@
+@import "../../variables";
+
+.input {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid $color-black;
+  background: $color-white;
+  color: $color-black;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 15px;
+  cursor: pointer;
+  transition: background-color 0.4s ease-in-out;
+  &-dark {
+    color: $color-light-gray;
+    border-color: $color-white;
+    background: $color-black;
+  }
+}

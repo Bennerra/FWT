@@ -1,9 +1,32 @@
 @import "../../variables";
 
 .home {
+  min-height: 100vh;
+  &__filters {
+    margin-bottom: 45px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
   &__pagination {
     padding-top: 40px;
     padding-bottom: 97px;
   }
+
+  @media(min-width: $mw2) {
+    &__filters {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 20px;
+    }
+  }
 }
 
+.loading, .not-found {
+  text-align: center;
+  color: $color-hover-dark-gray;
+  font-size: 24px;
+  font-weight: 400;
+}

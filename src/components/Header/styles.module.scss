@@ -2,10 +2,11 @@
 
 .header {
   padding: 35px 0;
-  background-color: inherit;
+  background-color: $color-white;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  transition: background-color 0.4s ease-in-out;
   &__logo {
     cursor: pointer;
     & > * {
@@ -16,14 +17,20 @@
   }
   &__theme {
     cursor: pointer;
-    background-color: inherit;
+    background-color: $color-white;
+    transition: background-color 0.4s ease-in-out;
+    &-dark {
+      color: $color-white;
+      background-color: $color-black;
+    }
     & > * {
       width: 20px;
       height: 20px;
       object-fit: cover;
     }
-    &._dark {
-      color: $color-white;
-    }
+  }
+  &-dark {
+    color: $color-white;
+    background-color: $color-black;
   }
 }

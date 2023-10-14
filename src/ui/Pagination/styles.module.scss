@@ -2,8 +2,8 @@
 
 .pagination {
   display: flex;
-  & > * {
-    background-color: inherit;
+  &__page, &__arrow, &__arrow-double {
+    background-color: $color-white;
     padding: 10px 14px;
     border: 1px solid $color-black;
     color: $color-black;
@@ -12,6 +12,7 @@
     line-height: 20px;
     text-transform: uppercase;
     cursor: pointer;
+    transition: background 0.4s ease-in-out;
     &:first-child {
       border-radius: 10px 0 0 10px;
     }
@@ -24,9 +25,10 @@
     &:hover {
       background-color: $color-hover-gray;
     }
-    &._dark {
+    &-dark {
       border-color: $color-white;
       color: $color-white;
+      background-color: $color-black;
       &:hover {
         background-color: $color-hover-dark-gray;
         color: $color-white;
@@ -48,11 +50,16 @@
       & > * {
         color: $color-gray;
       }
-      &._dark {
+    }
+    &-dark {
+      &._disabled {
         background-color: $color-black;
         border-color: $color-light-gray;
         & > * {
           color: $color-light-gray;
+        }
+        &:hover {
+          background-color: $color-black;
         }
       }
     }
@@ -72,11 +79,16 @@
       & > * {
         color: $color-gray;
       }
-      &._dark {
+    }
+    &-dark {
+      &._disabled {
         background-color: $color-black;
         border-color: $color-light-gray;
         & > * {
           color: $color-light-gray;
+        }
+        &:hover {
+          background-color: $color-black;
         }
       }
     }
@@ -86,7 +98,9 @@
       cursor: auto;
       color: $color-white;
       background-color: $color-black;
-      &._dark {
+    }
+    &-dark {
+      &._current{
         color: $color-black;
         background-color: $color-white;
       }

@@ -20,7 +20,7 @@ import { ThemeContext } from "../../context";
 
 const cx = classNames.bind(styles);
 
-const LIMIT = 9;
+const LIMIT = 12;
 
 interface HomeProps {
   currentPage: number;

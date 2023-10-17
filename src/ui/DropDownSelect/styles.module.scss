@@ -78,7 +78,12 @@
       border-color: $color-white;
     }
   }
-
+  &__title {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 70%;
+    overflow: hidden;
+  }
   &__list {
     overflow: auto;
     height: 280px;

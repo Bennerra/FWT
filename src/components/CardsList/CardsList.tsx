@@ -24,11 +24,13 @@ const CardsList: FC<CardsListProps> = ({
 }) => {
   const getAuthorName = (id: number): string => {
     const author = authorsData.find((el) => el.id === id);
+
     return author?.name || "";
   };
 
   const getLocation = (id: number): string => {
     const location = locationsData.find((el) => el.id === id);
+
     return location?.location || "";
   };
 

@@ -31,13 +31,10 @@ export const ThemeProvider: FC<HTMLAttributes<HTMLDivElement>> = ({
   }, []);
 
   const toggleTheme = useCallback(() => {
-    if (theme === "light") {
-      setTheme("dark");
-      localStorage.setItem("theme", JSON.stringify("dark"));
-    } else {
-      setTheme("light");
-      localStorage.setItem("theme", JSON.stringify("light"));
-    }
+    const newTheme = theme === "light" ? "dark" : "light";
+
+    setTheme(newTheme);
+    localStorage.setItem("theme", JSON.stringify(newTheme));
   }, [theme]);
 
   const contextValue = useMemo(

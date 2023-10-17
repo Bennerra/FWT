@@ -1,4 +1,4 @@
-import { FC, useMemo, useState } from "react";
+import { FC, useContext, useMemo, useState } from "react";
 import classNames from "classnames/bind";
 
 import {
@@ -16,6 +16,7 @@ import { DropDownFromTo } from "../../ui/DropDownFromTo";
 import { DropDownSelect } from "../../ui/DropDownSelect";
 
 import styles from "./styles.module.scss";
+import { ThemeContext } from "../../context";
 
 const cx = classNames.bind(styles);
 
@@ -51,6 +52,7 @@ const Home: FC<HomeProps> = ({ currentPage }) => {
   const { data: locationsData = [] } = useGetLocationsQuery();
   const [isOpenAuthor, setIsOpenAuthor] = useState(false);
   const [isOpenLocation, setIsOpenLocation] = useState(false);
+  const { theme } = useContext(ThemeContext);
 
   const totalCount = paintingsData?.totalCount || 0;
 
@@ -69,11 +71,13 @@ const Home: FC<HomeProps> = ({ currentPage }) => {
         <>
           <section className={cx("home__filters")}>
             <Input
+              theme={theme}
               placeholder="Name"
               value={searchValue}
               onChange={(e) => setSearchValue(e.target.value)}
             />
             <DropDownSelect
+              typeSorting="sortingAuthors"
               name="name"
               title="Author"
               listArr={authorsData}
@@ -82,6 +86,7 @@ const Home: FC<HomeProps> = ({ currentPage }) => {
               sorting={sortingAuthorsSorting}
             />
             <DropDownSelect
+              typeSorting="sortingLocations"
               name="location"
               title="Location"
               listArr={locationsData}

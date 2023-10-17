@@ -2,11 +2,7 @@ import { Dispatch, SetStateAction, useContext } from "react";
 import classNames from "classnames/bind";
 
 import { useAppDispatch } from "../../hooks/redux";
-import {
-  addSortingAuthors,
-  addSortingLocations,
-  deleteSorting,
-} from "../../store/sortingSlice";
+import { addSorting, deleteSorting } from "../../store/sortingSlice";
 import { ThemeContext } from "../../context";
 
 import OutsideClickHandler from "../../components/OutsideClickHandler";
@@ -18,6 +14,7 @@ import styles from "./styles.module.scss";
 const cx = classNames.bind(styles);
 
 interface DropDownProps<T> {
+  typeSorting: string;
   name: string;
   title: string;
   listArr: T;
@@ -27,6 +24,7 @@ interface DropDownProps<T> {
 }
 
 const DropDownSelect = <T extends Record<string, any>>({
+  typeSorting,
   name,
   title,
   listArr,
@@ -49,14 +47,15 @@ const DropDownSelect = <T extends Record<string, any>>({
       dispatch(deleteSorting("sortingLocations"));
     }
   };
+
   const handleOptionClick = (item: T) => {
-    const sortingBody = { sorting: item[name], id: item.id };
+    const sortingBody = { typeSorting, sorting: item[name], id: item.id };
 
     if (name === "name") {
-      dispatch(addSortingAuthors(sortingBody));
+      dispatch(addSorting(sortingBody));
     }
     if (name === "location") {
-      dispatch(addSortingLocations(sortingBody));
+      dispatch(addSorting(sortingBody));
     }
   };
 

@@ -2,7 +2,7 @@ import { useContext, useState, FC } from "react";
 import classNames from "classnames/bind";
 
 import { ThemeContext } from "../../context";
-import { addSortingBefore, addSortingFrom } from "../../store/sortingSlice";
+import { addSortingCreated } from "../../store/sortingSlice";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 
 import { ReactComponent as ArrowDropDown } from "../../assets/ArrowDropDown.svg";
@@ -53,7 +53,9 @@ const DropDownFromTo: FC<DropDownFromToProps> = ({ title }) => {
             >
               <input
                 value={from}
-                onChange={(e) => dispatch(addSortingFrom(e.target.value))}
+                onChange={(e) =>
+                  dispatch(addSortingCreated({ from: e.target.value, before }))
+                }
                 type="text"
                 className={cx(
                   "dropdown-body__from",
@@ -69,7 +71,9 @@ const DropDownFromTo: FC<DropDownFromToProps> = ({ title }) => {
               />
               <input
                 value={before}
-                onChange={(e) => dispatch(addSortingBefore(e.target.value))}
+                onChange={(e) =>
+                  dispatch(addSortingCreated({ from, before: e.target.value }))
+                }
                 type="text"
                 className={cx(
                   "dropdown-body__before",

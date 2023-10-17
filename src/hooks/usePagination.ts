@@ -26,7 +26,9 @@ export const usePagination = (totalPages: number, currentPage: number) => {
         pages.push(i + 1);
       }
     }
+
     return pages;
   }, [totalPages, currentPage]);
+
   return pagesArr;
 };

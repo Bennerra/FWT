@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface Sorting {
+  typeSorting: string;
   sorting: string;
   id: number;
 }
@@ -14,14 +15,17 @@ interface Sortings {
   sortingAuthors: Sorting;
   sortingLocations: Sorting;
   sortingCreated: SortingCreated;
+  [key: string]: any;
 }
 
 const initialState: Sortings = {
   sortingAuthors: {
+    typeSorting: "",
     sorting: "",
     id: 0,
   },
   sortingLocations: {
+    typeSorting: "",
     sorting: "",
     id: 0,
   },
@@ -35,19 +39,13 @@ const SortingSlice = createSlice({
   name: "sortingSlice",
   initialState,
   reducers: {
-    addSortingAuthors(state, action: PayloadAction<Sorting>) {
-      state.sortingAuthors.sorting = action.payload.sorting;
-      state.sortingAuthors.id = action.payload.id;
+    addSorting(state, action: PayloadAction<Sorting>) {
+      state[action.payload.typeSorting].sorting = action.payload.sorting;
+      state[action.payload.typeSorting].id = action.payload.id;
     },
-    addSortingLocations(state, action: PayloadAction<Sorting>) {
-      state.sortingLocations.sorting = action.payload.sorting;
-      state.sortingLocations.id = action.payload.id;
-    },
-    addSortingFrom(state, action: PayloadAction<string>) {
-      state.sortingCreated.from = action.payload;
-    },
-    addSortingBefore(state, action: PayloadAction<string>) {
-      state.sortingCreated.before = action.payload;
+    addSortingCreated(state, action: PayloadAction<SortingCreated>) {
+      state.sortingCreated.from = action.payload.from;
+      state.sortingCreated.before = action.payload.before;
     },
     deleteSorting(
       state,
@@ -59,11 +57,6 @@ const SortingSlice = createSlice({
   },
 });
 
-export const {
-  addSortingAuthors,
-  addSortingLocations,
-  deleteSorting,
-  addSortingFrom,
-  addSortingBefore,
-} = SortingSlice.actions;
+export const { addSorting, deleteSorting, addSortingCreated } =
+  SortingSlice.actions;
 export default SortingSlice.reducer;

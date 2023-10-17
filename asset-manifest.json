@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/FWT/static/css/main.9c607d8c.css",
+    "main.js": "/FWT/static/js/main.5e687998.js",
+    "static/media/theme.svg": "/FWT/static/media/theme.6fd4717e0e9e523e3091e1154e9808b5.svg",
+    "static/media/logo.svg": "/FWT/static/media/logo.c052f3191312e20b268472ae90f57549.svg",
+    "static/media/ArrowNextDouble.svg": "/FWT/static/media/ArrowNextDouble.6c636811e8e18510c169b01d5f5e801b.svg",
+    "static/media/ArrowPrevDouble.svg": "/FWT/static/media/ArrowPrevDouble.cfe992941501d84a948eda4b230bfb56.svg",
+    "static/media/DeleteSorting.svg": "/FWT/static/media/DeleteSorting.484e3eb6f79c67c398a85c3c94029eb1.svg",
+    "index.html": "/FWT/index.html",
+    "static/media/ArrowPrev.svg": "/FWT/static/media/ArrowPrev.3f6ac09a52300adf4f2f308929590c58.svg",
+    "static/media/ArrowNext.svg": "/FWT/static/media/ArrowNext.2c8257bfe9befd289ede8c0d32a50ff5.svg",
+    "static/media/ArrowDropDown.svg": "/FWT/static/media/ArrowDropDown.cbe9ff7ef9a9f3aaa02e4a602452ddc0.svg",
+    "main.9c607d8c.css.map": "/FWT/static/css/main.9c607d8c.css.map",
+    "main.5e687998.js.map": "/FWT/static/js/main.5e687998.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9c607d8c.css",
+    "static/js/main.5e687998.js"
+  ]
+}

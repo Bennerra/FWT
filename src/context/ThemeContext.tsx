@@ -7,6 +7,7 @@ import {
   useMemo,
   useEffect,
 } from "react";
+
 import { getStorageValue } from "../utils/getStorageValue";
 
 interface ThemeContextProps {

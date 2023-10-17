@@ -2,22 +2,16 @@ import { configureStore } from "@reduxjs/toolkit";
 import { paintingsApi } from "./paintings";
 import { authorsApi } from "./authors";
 import { locationsApi } from "./locations";
-import currentPageReducer from "./paginationSlice";
-import nextPageReducer from "./paginationSlice";
-import prevPageReducer from "./paginationSlice";
-import addSorting from "./sortingSlice";
-import deleteSorting from "./sortingSlice";
+import paginationReducer from "./paginationSlice";
+import sortingReducer from "./sortingSlice";
 
 export const store = configureStore({
   reducer: {
     [paintingsApi.reducerPath]: paintingsApi.reducer,
     [authorsApi.reducerPath]: authorsApi.reducer,
     [locationsApi.reducerPath]: locationsApi.reducer,
-    currentPage: currentPageReducer,
-    nextPage: nextPageReducer,
-    prevPage: prevPageReducer,
-    addSorting,
-    deleteSorting,
+    pagination: paginationReducer,
+    sortings: sortingReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(

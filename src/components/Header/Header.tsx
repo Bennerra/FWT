@@ -1,11 +1,12 @@
 import { FC, useContext } from "react";
 import classNames from "classnames/bind";
 
+import { ThemeContext } from "../../context";
+
 import { ReactComponent as Logo } from "../../assets/logo.svg";
 import { ReactComponent as Theme } from "../../assets/theme.svg";
 
 import styles from "./styles.module.scss";
-import { ThemeContext } from "../../context";
 
 const cx = classNames.bind(styles);
 

@@ -8,11 +8,12 @@
   font-size: 13px;
   font-weight: 400;
   cursor: pointer;
-  transition: background 0.4s ease-in-out;
+
   &-dark {
     background: $color-black;
     color: $color-white;
   }
+
   &__filter {
     display: flex;
     align-items: center;
@@ -20,33 +21,39 @@
     border-radius: 8px;
     border: 1px solid $color-black;
     padding: 15px;
+
     &._isOpen {
       border-bottom: 1px solid $color-gray;
       border-radius: 8px 8px 0 0;
     }
+
     &-dark {
       border-color: $color-white;
+
       &._isOpen {
         border-bottom-color: $color-light-gray;
       }
     }
   }
+
   &__direction {
     display: flex;
     align-items: center;
     gap: 10px;
   }
+
   &__delete {
     background: $color-white;
-    transition: background 0.4s ease-in-out;
+
     &-dark {
       color: $color-light-gray;
       background: $color-black;
     }
   }
+
   &__arrow {
     background-color: $color-white;
-    transition: background 0.4s ease-in-out;
+
     &-dark {
       color: $color-light-gray;
       background-color: $color-black;
@@ -65,7 +72,7 @@
     z-index: 5;
     padding: 10px 0;
     padding-right: 8px;
-    transition: background-color 0.4s ease-in-out;
+
     &-dark {
       background-color: $color-black;
       border-color: $color-white;
@@ -81,6 +88,7 @@
     font-size: 16px;
     font-weight: 500;
     line-height: 20px;
+
     &-dark {
       color: $color-white;
     }
@@ -105,18 +113,27 @@
     }
   }
 }
+
 .dropdown-list {
   &__item {
     padding: 10px 30px;
+
     &:hover {
       background-color: $color-black;
       color: $color-white;
     }
+
     &-dark {
       &:hover {
         background-color: $color-white;
         color: $color-black;
       }
+    }
+    @media(min-width: $mw2) {
+      padding: 10px 15px;
+    }
+    @media(min-width: $mw3) {
+      padding: 10px 22px;
     }
   }
 }

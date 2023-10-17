@@ -1,12 +1,6 @@
 import { FC, useContext } from "react";
-
 import classNames from "classnames/bind";
-import { ReactComponent as ArrowPrevDouble } from "../../assets/ArrowPrevDouble.svg";
-import { ReactComponent as ArrowPrev } from "../../assets/ArrowPrev.svg";
-import { ReactComponent as ArrowNextDouble } from "../../assets/ArrowNextDouble.svg";
-import { ReactComponent as ArrowNext } from "../../assets/ArrowNext.svg";
 
-import styles from "./styles.module.scss";
 import { usePagination } from "../../hooks/usePagination";
 import { useAppDispatch } from "../../hooks/redux";
 import {
@@ -17,6 +11,13 @@ import {
   changePrevPage,
 } from "../../store/paginationSlice";
 import { ThemeContext } from "../../context";
+
+import { ReactComponent as ArrowPrevDouble } from "../../assets/ArrowPrevDouble.svg";
+import { ReactComponent as ArrowPrev } from "../../assets/ArrowPrev.svg";
+import { ReactComponent as ArrowNextDouble } from "../../assets/ArrowNextDouble.svg";
+import { ReactComponent as ArrowNext } from "../../assets/ArrowNext.svg";
+
+import styles from "./styles.module.scss";
 
 interface PaginationProps {
   totalPages: number;

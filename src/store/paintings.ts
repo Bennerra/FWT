@@ -14,15 +14,29 @@ export const paintingsApi = createApi({
         _page: number;
         q: string;
         authorId?: number | undefined;
+        locationId?: number | undefined;
+        created_gte: string | undefined;
+        created_lte: string | undefined;
       }
     >({
-      query: ({ _limit, _page, q, authorId }) => ({
+      query: ({
+        _limit,
+        _page,
+        q,
+        authorId,
+        locationId,
+        created_gte,
+        created_lte,
+      }) => ({
         url: `/paintings?`,
         params: {
           _limit,
           _page,
           q,
           authorId,
+          locationId,
+          created_gte,
+          created_lte,
         },
       }),
       transformResponse: (

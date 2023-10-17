@@ -1,29 +1,69 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-type SortingsArr = {
+interface Sorting {
   sorting: string;
   id: number;
+}
+
+interface SortingCreated {
+  from: string;
+  before: string;
+}
+
+interface Sortings {
+  sortingAuthors: Sorting;
+  sortingLocations: Sorting;
+  sortingCreated: SortingCreated;
+}
+
+const initialState: Sortings = {
+  sortingAuthors: {
+    sorting: "",
+    id: 0,
+  },
+  sortingLocations: {
+    sorting: "",
+    id: 0,
+  },
+  sortingCreated: {
+    from: "",
+    before: "",
+  },
 };
 
-const initialState: SortingsArr = {
-  sorting: "",
-  id: 0,
-};
-
-const Sorting = createSlice({
+const SortingSlice = createSlice({
   name: "sortingSlice",
   initialState,
   reducers: {
-    addSorting(state, action: PayloadAction<SortingsArr>) {
-      state.sorting = action.payload.sorting;
-      state.id = action.payload.id;
+    addSortingAuthors(state, action: PayloadAction<Sorting>) {
+      state.sortingAuthors.sorting = action.payload.sorting;
+      state.sortingAuthors.id = action.payload.id;
     },
-    deleteSorting(state) {
-      state.sorting = "";
-      state.id = 0;
+    addSortingLocations(state, action: PayloadAction<Sorting>) {
+      state.sortingLocations.sorting = action.payload.sorting;
+      state.sortingLocations.id = action.payload.id;
+    },
+    addSortingFrom(state, action: PayloadAction<string>) {
+      state.sortingCreated.from = action.payload;
+    },
+    addSortingBefore(state, action: PayloadAction<string>) {
+      state.sortingCreated.before = action.payload;
+    },
+    deleteSorting(
+      state,
+      action: PayloadAction<"sortingAuthors" | "sortingLocations">
+    ) {
+      state[action.payload].sorting = "";
+      state[action.payload].id = 0;
     },
   },
 });
 
-export const { addSorting, deleteSorting } = Sorting.actions;
-export default Sorting.reducer;
+export const {
+  addSortingAuthors,
+  addSortingLocations,
+  deleteSorting,
+  addSortingFrom,
+  addSortingBefore,
+} = SortingSlice.actions;
+export default SortingSlice.reducer;

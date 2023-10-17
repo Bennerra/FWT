@@ -17,15 +17,15 @@ const Pagination = createSlice({
     },
     changeNextPage(state, action: PayloadAction<number>) {
       if (state.currentPage < action.payload) {
-        state.currentPage++;
+        state.currentPage += 1;
       }
     },
-    changePrevPage(state, action: PayloadAction) {
+    changePrevPage(state) {
       if (state.currentPage > 1) {
-        state.currentPage--;
+        state.currentPage -= 1;
       }
     },
-    changePrevDoublePage(state, action: PayloadAction) {
+    changePrevDoublePage(state) {
       state.currentPage = 1;
     },
     changeNextDoublePage(state, action: PayloadAction<number>) {

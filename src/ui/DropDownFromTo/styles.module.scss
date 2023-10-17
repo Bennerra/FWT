@@ -1,0 +1,95 @@
+@import "../../_variables";
+
+.dropdown {
+  position: relative;
+  width: 100%;
+  background: $color-white;
+  color: $color-black;
+  font-size: 13px;
+  font-weight: 400;
+  cursor: pointer;
+
+  &-dark {
+    background: $color-black;
+    color: $color-white;
+  }
+
+  &__filter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 8px;
+    border: 1px solid $color-black;
+    padding: 15px;
+
+    &-dark {
+      border-color: $color-white;
+    }
+    &._isOpen {
+      border-radius: 8px 8px 0 0;
+    }
+  }
+
+  &__direction {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__arrow {
+    background-color: $color-white;
+
+    &-dark {
+      color: $color-light-gray;
+      background-color: $color-black;
+    }
+  }
+  &__body {
+    width: 100%;
+    position: absolute;
+    background-color: $color-white;
+    top: 44px;
+    left: 0;
+    border: 1px solid $color-black;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    z-index: 5;
+    padding: 20px;
+
+    &-dark {
+      background-color: $color-black;
+      border-color: $color-white;
+    }
+  }
+}
+.dropdown-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  &__from, &__before {
+    width: 100%;
+    font-style: normal;
+    border-radius: 8px;
+    background: $color-created-gray;
+    padding: 15px;
+    &-dark {
+      background-color: $color-white;
+    }
+  }
+  &__line {
+    min-width: 12px;
+    height: 1px;
+    background: $color-black;
+    &-dark {
+      background: $color-white;
+    }
+  }
+  @media(min-width: $mw2) {
+    flex-direction: column;
+    gap: 15px;
+  }
+  @media(min-width: $mw3) {
+    flex-direction: row;
+  }
+}

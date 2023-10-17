@@ -6,7 +6,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  transition: background-color 0.4s ease-in-out;
   &__logo {
     cursor: pointer;
     & > * {
@@ -18,7 +17,6 @@
   &__theme {
     cursor: pointer;
     background-color: $color-white;
-    transition: background-color 0.4s ease-in-out;
     &-dark {
       color: $color-white;
       background-color: $color-black;

@@ -13,8 +13,8 @@ export const paintingsApi = createApi({
         _limit: number;
         _page: number;
         q: string;
-        authorId?: number | undefined;
-        locationId?: number | undefined;
+        authorId: number | undefined;
+        locationId: number | undefined;
         created_gte: string | undefined;
         created_lte: string | undefined;
       }

@@ -1,8 +1,8 @@
 export interface IPainting {
-  authorId?: number;
+  authorId: number;
   created: string;
   id: number;
   imageUrl: string;
-  locationId?: number;
+  locationId: number;
   name: string;
 }

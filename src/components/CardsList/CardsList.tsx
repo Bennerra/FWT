@@ -42,8 +42,8 @@ const CardsList: FC<CardsListProps> = ({
           title={painting.name}
           year={painting.created}
           key={painting.id}
-          author={getAuthorName(painting.id)}
-          location={getLocation(painting.id)}
+          author={getAuthorName(painting.authorId)}
+          location={getLocation(painting.locationId)}
         />
       ))}
     </div>
